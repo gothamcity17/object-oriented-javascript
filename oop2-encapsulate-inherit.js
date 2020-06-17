@@ -128,34 +128,59 @@ class Review {
 class Umbrella {
 
     constructor(orgnaization) {
-        this.organization = orgnaization
+        this.organization = orgnaization;
     }
 }
 
-class Company {
+class Company extends Umbrella{
     
     constructor(name,numEmployees) {
+        super();
         this.name = name;
         this.numEmployees = numEmployees;
     }
 }
 
-class Site {
+class Site extends Company{
 
     constructor(name, location) {
+        super(name);
         this.name = name;
         this.location = location;
     }
 }
 
-class Employee {
+class Employee extends Site{
 
-    constructor(employeeName, job, salary) {
+    constructor(name, location, employeeName, job, salary) {
+        super(name, location);
         this.employeeName = employeeName;
         this.job = job;
         this.salary = salary;
     }
 }
+
+
+const allegis = new Umbrella("Allegis Group");
+
+const teksystems = new Company("TEKsystems", 3000)
+const aerotek = new Company("Aerotek", 1500);
+const aston = new Company("Aston Carter Group", 1000);
+
+const teksystemsSite = new Site("TEKsystems", "Irving, TX")
+const aerotekSite = new Site("Aerotek", "Hurst, TX")
+const astonSite = new Site("Aston Carter Group", "Addison, TX")
+
+const mark = new Employee("TEKsystems", "Irving, TX", "Mark", "VP", 200000);
+const john = new Employee("TEKsystems", "Irving, TX", "John", "Manager", 160000);
+const martha = new Employee("TEKsystems", "Irving, TX", "Martha", "Secretary", 80000);
+const david = new Employee("Aerotek", "Hurst, TX", "David", "Engineer", 120000);
+const samantha = new Employee("Aerotek", "Hurst, TX", "Samantha", "Financial Analyst", 90000);
+const alejandro = new Employee("Aerotek", "Hurst, TX", "Alejandro", "Business Analyst", 100000);
+const olivia = new Employee("Aerotek", "Hurst, TX", "Olivia", "Marketing Director", 90000);
+const emma = new Employee("Aston Carter Group", "Addison, TX", "Emma", "HR", 60000);
+const Amelia = new Employee("Aston Carter Group", "Addison, TX", "Amelia", "Lawyer", 120000);
+const mia = new Employee("Aston Carter Group", "Addison, TX", "Mia", "Paralegal", 70000)
 
 /****************************************************************************************************************************************************************************************   
 Bonus Exercise:
