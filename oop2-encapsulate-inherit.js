@@ -10,12 +10,12 @@
 */
 
 class Book {
-    #author = "Matthew Syed";
-    #publisher = "Penguin Publishing Group";
+    #author;
+    #publisher;
 
-    constructor() {
-        this.#author = "Matthew Syed";
-        this.#publisher = "Penguin Publishing Group";
+    constructor(author, publisher) {
+        this.#author = author;
+        this.#publisher = publisher;
     }
 
     getAuthor() {
@@ -26,23 +26,92 @@ class Book {
         return this.#publisher;
     }
 
-    setAuthor(fill1) {
-        this.#author = fill1;
+    setAuthor(author) {
+        this.#author = author;
     }
 
-    setPublisher(fill2) {
-        this.#publisher = fill2;
+    setPublisher(publisher) {
+        this.#publisher = publisher;
     }
-
 }
 
 class Author {
-    #name = "Matthew Syed";
-    #books = ""
+    #name;
+    #books;
+
+    constructor(name, books) {
+        this.#name = name;
+        this.#books = books;
+    }
+
+    getName() {
+        return this.#name;
+    }
+
+    getBooks() {
+        return this.#books;
+    }
+
+    setName(name) {
+        this.#name = name;
+    }
+
+    setBooks(books) {
+        this.#books = books;
+    }
 }
 
+class Publisher {
+    #authors;
+    #books;
 
+    constructor(authors, books) {
+        this.#authors = authors;
+        this.#books = books;
+    }
 
+    getAuthors() {
+        return this.#authors;
+    }
+
+    getBooks() {
+        return this.#books;
+    }
+
+    setAuthors(authors) {
+        this.#authors = authors;
+    }
+
+    setBooks(books) {
+        this.#books = books;
+    }
+}
+
+class Review {
+    #rating;
+    #user;
+
+    constructor(rating, user) {
+        this.#rating = rating;
+        this.#user = user;
+    }
+
+    getRating() {
+        return this.#rating;
+    }
+
+    getUser() {
+        return this.#user;
+    }
+
+    setRating(rating) {
+        this.#rating = rating;
+    }
+
+    setUser(user) {
+        this.#user = user;
+    }
+}
 
 /* 
 2. Create the following classes:
@@ -53,10 +122,40 @@ class Author {
     
     - For each class, add 2 properties and 2 methods to each.  The properties and methods should make sense, considering what the classes are supposed to be representing.
 
-
-
     //your code here...
  */
+
+class Umbrella {
+
+    constructor(orgnaization) {
+        this.organization = orgnaization
+    }
+}
+
+class Company {
+    
+    constructor(name,numEmployees) {
+        this.name = name;
+        this.numEmployees = numEmployees;
+    }
+}
+
+class Site {
+
+    constructor(name, location) {
+        this.name = name;
+        this.location = location;
+    }
+}
+
+class Employee {
+
+    constructor(employeeName, job, salary) {
+        this.employeeName = employeeName;
+        this.job = job;
+        this.salary = salary;
+    }
+}
 
 /****************************************************************************************************************************************************************************************   
 Bonus Exercise:
