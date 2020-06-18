@@ -127,60 +127,119 @@ class Review {
 
 class Umbrella {
 
+    #organization = "Allegis Group"
+    #founded = 1983
+    #subsidiaries = 10
+
     constructor(orgnaization) {
-        this.organization = orgnaization;
+        this.#organization = orgnaization;
+    }
+
+    organizationFounded() {
+        console.log(`The organization ${this.#organization} was founded in the year ${this.#founded}.`)
+    }
+
+    organizationSubsidiaries() {
+        console.log(` ${this.#organization} has ${this.#subsidiaries} different subsidiaries.`)
     }
 }
 
 class Company extends Umbrella{
+
+    #organization;
+    #name;
+    #numEmployees;
+    #numClients;
     
-    constructor(name,numEmployees) {
-        super();
-        this.name = name;
-        this.numEmployees = numEmployees;
+    constructor(orgnaization, name, numEmployees, numClients) {
+        super(orgnaization);
+        this.#name = name;
+        this.#numEmployees = numEmployees;
+        this.#numClients = numClients;
+    
+    }
+
+    companyExpansion() {
+        console.log(`The company ${this.#name} in the organization ${this.#organization} want to expands.`)
+    }
+
+    companyComparison() {
+        console.log(`The company ${this.#name} has ${this.#numEmployees} employees who manage ${this.#numClients} clients.`)
     }
 }
 
 class Site extends Company{
 
-    constructor(name, location) {
+    #name;
+    #location;
+    #active;
+    #tech;
+
+    constructor(name, location, active, tech) {
         super(name);
-        this.name = name;
-        this.location = location;
+        this.#name = name;
+        this.#location = location;
+        this.#active = active;
+        this.#tech = tech;
+    }
+
+    siteInfo() {
+        console.log(`The company ${this.#name} is located in: ${this.#location}.`)
+    }
+    siteDetails() {
+        console.log(`Is the company ${this.#name} still active? ${this.#active}. And is it a tech company? ${this.#tech}.`)
     }
 }
 
 class Employee extends Site{
 
+    #name;
+    #location;
+    #employeeName;
+    #job;
+    #salary;
+    #gender;
+    #experience;
+
     constructor(name, location, employeeName, job, salary) {
         super(name, location);
-        this.employeeName = employeeName;
-        this.job = job;
-        this.salary = salary;
+        this.#employeeName = employeeName;
+        this.#job = job;
+        this.#salary = salary;
+        this.#gender = gender;
+        this.#experience = experience;
+    }
+
+    employeeInfo(){
+        console.log(`${this.#employeeName} is a ${this.#gender} works at ${this.#name} in ${this.#location} as a ${this.#job}.`)
+    }
+
+    employeeDetails() {
+        console.log(`${this.#employeeName} is a ${this.#job} who has a salary of ${this.#salary} and has ${this.#experience} years of experience.`)
     }
 }
 
 
 const allegis = new Umbrella("Allegis Group");
 
-const teksystems = new Company("TEKsystems", 3000)
-const aerotek = new Company("Aerotek", 1500);
-const aston = new Company("Aston Carter Group", 1000);
+const teksystems = new Company("Allegis Group", "TEKsystems", 3000, 400)
+const aerotek = new Company("Allegis Group", "Aerotek", 1500, 300);
+const aston = new Company("Allegis Group", "Aston Carter Group", 1000, 250);
 
-const teksystemsSite = new Site("TEKsystems", "Irving, TX")
-const aerotekSite = new Site("Aerotek", "Hurst, TX")
-const astonSite = new Site("Aston Carter Group", "Addison, TX")
+const teksystemsSite = new Site("TEKsystems", "Irving, TX", "Yes", "Yes")
+const aerotekSite = new Site("Aerotek", "Hurst, TX", "Yes", "No")
+const astonSite = new Site("Aston Carter Group", "Addison, TX", "Yes", "No")
 
-const mark = new Employee("TEKsystems", "Irving, TX", "Mark", "VP", 200000);
-const john = new Employee("TEKsystems", "Irving, TX", "John", "Manager", 160000);
-const martha = new Employee("TEKsystems", "Irving, TX", "Martha", "Secretary", 80000);
-const david = new Employee("Aerotek", "Hurst, TX", "David", "Engineer", 120000);
-const samantha = new Employee("Aerotek", "Hurst, TX", "Samantha", "Financial Analyst", 90000);
-const alejandro = new Employee("Aerotek", "Hurst, TX", "Alejandro", "Business Analyst", 100000);
-const olivia = new Employee("Aerotek", "Hurst, TX", "Olivia", "Marketing Director", 90000);
-const emma = new Employee("Aston Carter Group", "Addison, TX", "Emma", "HR", 60000);
-const Amelia = new Employee("Aston Carter Group", "Addison, TX", "Amelia", "Lawyer", 120000);
-const mia = new Employee("Aston Carter Group", "Addison, TX", "Mia", "Paralegal", 70000)
+const mark = new Employee("TEKsystems", "Irving, TX", "Mark", "VP", 200000, "Male", "16 years");
+const john = new Employee("TEKsystems", "Irving, TX", "John", "Manager", 160000, "Male", "8 years");
+const martha = new Employee("TEKsystems", "Irving, TX", "Martha", "Secretary", 80000, "Female", "11 years");
+const david = new Employee("Aerotek", "Hurst, TX", "David", "Engineer", 120000, "Male", "6 years");
+const samantha = new Employee("Aerotek", "Hurst, TX", "Samantha", "Financial Analyst", 90000, "Female", "7 years");
+const alejandro = new Employee("Aerotek", "Hurst, TX", "Alejandro", "Business Analyst", 100000, "Male", "5 years");
+const olivia = new Employee("Aerotek", "Hurst, TX", "Olivia", "Marketing Director", 90000, "Female", "9 years");
+const emma = new Employee("Aston Carter Group", "Addison, TX", "Emma", "HR", 60000, "Female", "2 years");
+const Amelia = new Employee("Aston Carter Group", "Addison, TX", "Amelia", "Lawyer", 120000, "Female", "14 years");
+const mia = new Employee("Aston Carter Group", "Addison, TX", "Mia", "Paralegal", 70000, "Female", "4 years")
 
 /****************************************************************************************************************************************************************************************   
 Bonus Exercise:
