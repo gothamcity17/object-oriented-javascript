@@ -238,7 +238,7 @@ const samantha = new Employee("Aerotek", "Hurst, TX", "Samantha", "Financial Ana
 const alejandro = new Employee("Aerotek", "Hurst, TX", "Alejandro", "Business Analyst", 100000, "Male", "5 years");
 const olivia = new Employee("Aerotek", "Hurst, TX", "Olivia", "Marketing Director", 90000, "Female", "9 years");
 const emma = new Employee("Aston Carter Group", "Addison, TX", "Emma", "HR", 60000, "Female", "2 years");
-const Amelia = new Employee("Aston Carter Group", "Addison, TX", "Amelia", "Lawyer", 120000, "Female", "14 years");
+const amelia = new Employee("Aston Carter Group", "Addison, TX", "Amelia", "Lawyer", 120000, "Female", "14 years");
 const mia = new Employee("Aston Carter Group", "Addison, TX", "Mia", "Paralegal", 70000, "Female", "4 years")
 
 /****************************************************************************************************************************************************************************************   
