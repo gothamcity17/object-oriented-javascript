@@ -169,7 +169,7 @@ rectangle.calcArea();
 rectangle.calcPerimeter();
 
 
-const newCircle = new Shape("Circl")
+const newCircle = new Shape("circle")
 
 const circle = {
   name: 'circle',
@@ -190,12 +190,121 @@ circle.calcArea();
 /*********************************************** 
 Bonus Exercises:
 
+*/
+
 //4. Create three more instances of the Shape class for a pentagon, hexagon, and an octagon.  Add in  comments explaining the formulas for calculating the perimeter and the areas of these 3 shapes.  Also, as noted above, if you use the formula to calculate the height of the triangle instead of hard coding it, you will also obtain the bonus for this exercise.  The dimensions for the triangle are already provided for you in the triangle object literal.
+class Shape {
+  constructor(name, sides, base, height, length, width, radius) {
+      this.name = name;
+      this.sides = sides;
+      this.base = base;
+      this.height = height;
+      this.length = length;
+      this.width = width;
+      this.radius = radius;
+  }
+
+  calcArea() {
+    if (this.name === 'heptagon'){
+        console.log(`The area of a ${this.name} is ${.5 * this.base * this.height}.`);
+    }
+    else if (this.name === 'hexagon') {
+        console.log(`The area of a ${this.name} is ${this.length * this.width}.`)
+    }
+    else if (this.name === 'octagon'){
+        console.log(`This area of a ${this.name} is ${(Math.PI * Math.pow(this.radius, 2)).toFixed(2)}`)
+    }
+}
+
+calcPerimeter() {
+    if (this.name === 'heptagon') {
+        console.log(`The perimeter of a ${this.name} is ${5 * this.length}`)
+    }
+    else if (this.name === 'hexagon') {
+        console.log(`The perimeter of a ${this.name} is ${6 * this.length}`)
+    }
+    else if (this.name === 'octagon') {
+      console.log(`The perimeter of a ${this.name} is ${8 * this.length}`)
+  }
+}
+}
 
 
+const newPentagon = new Shape ('pentagon', 5, null, null, 3, null, null);
+
+console.log(newPentagon)
+newPentagon.calcArea()
+newPentagon.calcPerimeter()
+
+const newHexagon = new Shape ('hexagon', 6, null, null, 3, null, null);
+
+console.log(newHexagon)
+newHexagon.calcArea()
+newHexagon.calcPerimeter()
+
+const newOctagon = new Shape ('octagon', 6, null, null, 3, null, null);
+
+console.log(newOctagon)
+newOctagon.calcArea()
+newOctagon.calcPerimeter()
+
+
+const pentagon = {
+  name: 'pentagon',
+  sides: 5,
+  length: 3,
+  calcArea: function () {
+    console.log(`${this.name}'s area is calculated to be : ${((1/4) * Math.sqrt((5 * (5 + (2 * Math.sqrt(5))))) * Math.pow(this.length, 2)).toFixed(2)}`);
+  },
+  calcPerimeter: function () {
+    console.log(`${this.name}'s perimeter is calculated to be : ${5 * this.length}`);
+  },
+};
+
+console.log(pentagon);
+pentagon.calcArea();
+pentagon.calcPerimeter();
+
+
+const hexagon = {
+  name: 'hexagon',
+  sides: 6,
+  length: 3,
+  calcArea: function () {
+    console.log(`${this.name}'s area is calculated to be : ${(((3 * Math.sqrt(3)) / 2) * Math.pow(this.length, 2)).toFixed(2)}`);
+  },
+  calcPerimeter: function () {
+    console.log(`${this.name}'s perimeter is calculated to be : ${5 * this.length}`);
+  },
+};
+
+console.log(hexagon);
+hexagon.calcArea();
+hexagon.calcPerimeter();
+
+const octagon = {
+  name: 'octagon',
+  sides: 8,
+  length: 3,
+  calcArea: function () {
+    console.log(`${this.name}'s area is calculated to be : ${(2 * (1 + Math.sqrt(2)) * Math.pow(this.length, 2)).toFixed(2)}`);
+  },
+  calcPerimeter: function () {
+    console.log(`${this.name}'s perimeter is calculated to be : ${5 * this.length}`);
+  },
+};
+
+console.log(octagon);
+octagon.calcArea();
+octagon.calcPerimeter();
+
+
+
+/*
 //5. Below is a class Earth.  It is instantiated with a earth 'instance'.  Because there is only 1 known earth, we don't want multiple instances of earth.  Modify the class so the properties are usuable WITHOUT instantiating the class.
 
 */
+
 
 class Earth {
   name;
