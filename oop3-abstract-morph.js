@@ -18,7 +18,10 @@ These sub-classes MUST implement the abstract methods of move() and act(), which
 */
 
     class Creature {
-        //your code here...
+        constructor() {
+            
+        }
+        
     }
 
     class Human extends Creature {
@@ -35,7 +38,7 @@ These sub-classes MUST implement the abstract methods of move() and act(), which
 class Person {
     name;
 
-    eat() {
+    eat = () => {
         console.log(this.name + " is eating");
     }
 
@@ -43,17 +46,17 @@ class Person {
         console.log(this.name + " is sleeping");
     }
 
-    code = function() {
+    code = () => {
         console.log(this.name + " is coding");
     }
 
-    repeat = function() {
+    repeat = () => {
         console.log(this.name + " is repeating the above steps, yet another time");
     }
 
-    explain() {
+    explain = () => {
         //this function should contain a console.log() explaining what you had to do to get the correct functions to work, and the reasoning behind what you did.
-        console.log("this explain method should contain explain what you had to do to get the correct functions to work, and the reasoning behind what you did.");
+        console.log("to get the correct functions to work properly, each function had to be prioritized");
     }
 
 }
@@ -68,11 +71,11 @@ class Teacher extends Person {
         this.name = name;
     }
 
-    eat() {
+    eat = () => {
         console.log(this.name + " loves to teach before eating");
     }
 
-    sleep() {
+    sleep= () => {
         console.log(this.name + " sleeps after preparing the lesson plan");
     }
 
@@ -80,8 +83,12 @@ class Teacher extends Person {
         console.log(this.name + " codes first, then teaches it the next day.");
     }
 
-    repeat() {
+    repeat = () => {
         console.log(this.name + " teaches, codes, eats, sleeps, and repeats");
+    }
+
+    explain = () => {
+        console.log("an explain method was need, as the class teacher extended from the class person")
     }
 }
 
@@ -96,6 +103,31 @@ class Student extends Person {
     //code method should print out, <student name> was first overwhelmed by coding, but kept at it, and now has become a coding guru!
 
     //repeat method should print out, <student name> keeps on studying, coding, eating, and sleeping, and puts it all on repeat.  
+
+    constructor(name) {
+        super(name);
+        this.name = name;
+    }
+
+    eat = () => {
+        console.log(`${this.name} studies, then eats`);
+    }
+
+    sleep = () => {
+        console.log(`${this.name} studies coding so much, that they dream about it in their sleep`);
+    }
+      
+    code = () => {
+        console.log(`${this.name} was first overwhelmed by coding, but kept at it, and now has become a coding guru!`);
+    }
+
+    repeat = () => {
+        console.log(`${this.name} keeps on studying, coding, eating, and sleeping, and puts it all on repeat.`);
+    }
+
+    explain = () => {
+        console.log("an explain method was need, as the class student extended from the class person");
+    }
 
 }
 
@@ -128,16 +160,12 @@ student.repeat();
 
 class Cook {
 
-    prepare(food1,food2,food3) {
-        console.log("The cook is cooking " + food1, food2, food3);
-    }
-
-    prepare = function() {
-        console.log('The cook is cooking');
+    prepare = (food1,food2,food3) => {
+        console.log(`The cook is cooking + ${food1}, ${food2}, and ${food3}.`);
     }
 
     explain = () => {
-        console.log("what could you do to get the prepare function to print out the food items that are being passed in to the function?  Once you figure it out, Write down your thought process in this explain method.");
+        console.log("needed to delete the second prepare function, and fix (prioritize) the initial prepare function");
     }
 
 }
