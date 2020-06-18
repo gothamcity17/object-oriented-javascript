@@ -73,7 +73,7 @@ class Shape {
 
 
     calcHeight() {
-        if (this.name === 'triangle'){
+        if (this.name === 'triangle') {
             return Math.sqrt(Math.pow(this.sides[1], 2) - Math.pow(this.base, 2)).toFixed(2);
         };
     }
@@ -205,16 +205,16 @@ class Shape {
   }
 
   calcArea() {
-    if (this.name === 'heptagon'){
-        console.log(`The area of a ${this.name} is ${.5 * this.base * this.height}.`);
+    if (this.name === 'heptagon') {
+        console.log(`The area of a ${this.name} is ${((1/4) * Math.sqrt((5 * (5 + (2 * Math.sqrt(5))))) * Math.pow(this.length, 2)).toFixed(2)}.`);
     }
     else if (this.name === 'hexagon') {
-        console.log(`The area of a ${this.name} is ${this.length * this.width}.`)
+        console.log(`The area of a ${this.name} is ${(((3 * Math.sqrt(3)) / 2) * Math.pow(this.length, 2)).toFixed(2)}.`)
     }
     else if (this.name === 'octagon'){
-        console.log(`This area of a ${this.name} is ${(Math.PI * Math.pow(this.radius, 2)).toFixed(2)}`)
+        console.log(`This area of a ${this.name} is ${(2 * (1 + Math.sqrt(2)) * Math.pow(this.length, 2)).toFixed(2)}`)
     }
-}
+  }
 
 calcPerimeter() {
     if (this.name === 'heptagon') {
@@ -225,8 +225,8 @@ calcPerimeter() {
     }
     else if (this.name === 'octagon') {
       console.log(`The perimeter of a ${this.name} is ${8 * this.length}`)
+    }
   }
-}
 }
 
 
@@ -297,7 +297,6 @@ const octagon = {
 console.log(octagon);
 octagon.calcArea();
 octagon.calcPerimeter();
-
 
 
 /*
