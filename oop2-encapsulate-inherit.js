@@ -201,7 +201,7 @@ class Employee extends Site{
     #gender;
     #experience;
 
-    constructor(name, location, employeeName, job, salary) {
+    constructor(name, location, employeeName, job, salary, gender, experience) {
         super(name, location);
         this.#employeeName = employeeName;
         this.#job = job;

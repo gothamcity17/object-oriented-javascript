@@ -18,19 +18,89 @@ These sub-classes MUST implement the abstract methods of move() and act(), which
 */
 
     class Creature {
+
         constructor() {
-            
+            if (this.constructor === Creature) {
+                throw new Error(`Cannot instantiate new Abstract Creature class`)
+            }
         }
-        
+
+        move = () => {
+            throw new Error(`Cannot be invoked from the Abstract class`)
+        }
+
+        act = () => {
+            throw new Error(`Cannot be invoked from the Abstract class`)
+        }
     }
 
     class Human extends Creature {
-        //your code here...
+
+        #name;
+        #age;
+
+        constructor(name, age) {
+            super();
+            this.#name = name;
+            this.#age = age;
+        }
+
+        move = () => {
+            const directions = ["north", "south", "east", "west"]
+            const direction = directions[Math.floor(Math.random() * 4)]
+            return `A person named ${this.#name} is running in the ${direction} direction.`
+        }
+
+        act = () => {
+            return `${this.#name} who is ${this.#age} years old is looking for water.`
+        }
     }
 
+    class Dinosaur extends Creature {
 
+        #name;
+        #size;
 
+        constructor(name, size) {
+            super();
+            this.#name = name;
+            this.#size = size;
+        }
 
+        move = () => {
+            const directions = ["north", "south", "east", "west"]
+            const direction = directions[Math.floor(Math.random() * 4)]
+            return `A ${this.#name} is moving in the ${direction} direction.`
+        }
+
+        act = () => {
+            return `The ${this.#name} who is ${this.#size} feet tall is looking for food.`
+        }
+    }
+
+    class Bird extends Creature {
+
+        #name;
+        #season;
+
+        constructor(name, season) {
+            super();
+            this.#name = name;
+            this.#season = season;
+        }
+
+        move = () => {
+            const directions = ["north", "south", "east", "west"]
+            const direction = directions[Math.floor(Math.random() * 4)]
+            return `A ${this.#name} is flying in the ${direction} direction.`
+        }
+
+        act = () => {
+            return `The ${this.#name} is flying awasy becasue the ${this.#season} started.`
+        }
+    }
+
+    
 /*
 2. For the following Person class, modify the class methods, so the sub-class methods will successfully fire.  For the Teacher method, a set of methods have already been set up.  For the Student class, it will be up to you to determine how to set up the methods to fire in the Student sub-class.  :
 */
@@ -160,7 +230,7 @@ student.repeat();
 
 class Cook {
 
-    prepare = (food1,food2,food3) => {
+    prepare(food1,food2,food3) {
         console.log(`The cook is cooking + ${food1}, ${food2}, and ${food3}.`);
     }
 
