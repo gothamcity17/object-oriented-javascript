@@ -18,16 +18,89 @@ These sub-classes MUST implement the abstract methods of move() and act(), which
 */
 
     class Creature {
-        //your code here...
+
+        constructor() {
+            if (this.constructor === Creature) {
+                throw new Error(`Cannot instantiate new Abstract Creature class`)
+            }
+        }
+
+        move = () => {
+            throw new Error(`Cannot be invoked from the Abstract class`)
+        }
+
+        act = () => {
+            throw new Error(`Cannot be invoked from the Abstract class`)
+        }
     }
 
     class Human extends Creature {
-        //your code here...
+
+        #name;
+        #age;
+
+        constructor(name, age) {
+            super();
+            this.#name = name;
+            this.#age = age;
+        }
+
+        move = () => {
+            const directions = ["north", "south", "east", "west"]
+            const direction = directions[Math.floor(Math.random() * 4)]
+            return `A person named ${this.#name} is running in the ${direction} direction.`
+        }
+
+        act = () => {
+            return `${this.#name} who is ${this.#age} years old is looking for water.`
+        }
     }
 
+    class Dinosaur extends Creature {
 
+        #name;
+        #size;
 
+        constructor(name, size) {
+            super();
+            this.#name = name;
+            this.#size = size;
+        }
 
+        move = () => {
+            const directions = ["north", "south", "east", "west"]
+            const direction = directions[Math.floor(Math.random() * 4)]
+            return `A ${this.#name} is moving in the ${direction} direction.`
+        }
+
+        act = () => {
+            return `The ${this.#name} who is ${this.#size} feet tall is looking for food.`
+        }
+    }
+
+    class Bird extends Creature {
+
+        #name;
+        #season;
+
+        constructor(name, season) {
+            super();
+            this.#name = name;
+            this.#season = season;
+        }
+
+        move = () => {
+            const directions = ["north", "south", "east", "west"]
+            const direction = directions[Math.floor(Math.random() * 4)]
+            return `A ${this.#name} is flying in the ${direction} direction.`
+        }
+
+        act = () => {
+            return `The ${this.#name} is flying awasy becasue the ${this.#season} started.`
+        }
+    }
+
+    
 /*
 2. For the following Person class, modify the class methods, so the sub-class methods will successfully fire.  For the Teacher method, a set of methods have already been set up.  For the Student class, it will be up to you to determine how to set up the methods to fire in the Student sub-class.  :
 */
@@ -35,7 +108,7 @@ These sub-classes MUST implement the abstract methods of move() and act(), which
 class Person {
     name;
 
-    eat() {
+    eat = () => {
         console.log(this.name + " is eating");
     }
 
@@ -43,17 +116,17 @@ class Person {
         console.log(this.name + " is sleeping");
     }
 
-    code = function() {
+    code = () => {
         console.log(this.name + " is coding");
     }
 
-    repeat = function() {
+    repeat = () => {
         console.log(this.name + " is repeating the above steps, yet another time");
     }
 
-    explain() {
+    explain = () => {
         //this function should contain a console.log() explaining what you had to do to get the correct functions to work, and the reasoning behind what you did.
-        console.log("this explain method should contain explain what you had to do to get the correct functions to work, and the reasoning behind what you did.");
+        console.log("to get the correct functions to work properly, each function had to be prioritized");
     }
 
 }
@@ -68,11 +141,11 @@ class Teacher extends Person {
         this.name = name;
     }
 
-    eat() {
+    eat = () => {
         console.log(this.name + " loves to teach before eating");
     }
 
-    sleep() {
+    sleep= () => {
         console.log(this.name + " sleeps after preparing the lesson plan");
     }
 
@@ -80,8 +153,12 @@ class Teacher extends Person {
         console.log(this.name + " codes first, then teaches it the next day.");
     }
 
-    repeat() {
+    repeat = () => {
         console.log(this.name + " teaches, codes, eats, sleeps, and repeats");
+    }
+
+    explain = () => {
+        console.log("an explain method was need, as the class teacher extended from the class person")
     }
 }
 
@@ -96,6 +173,31 @@ class Student extends Person {
     //code method should print out, <student name> was first overwhelmed by coding, but kept at it, and now has become a coding guru!
 
     //repeat method should print out, <student name> keeps on studying, coding, eating, and sleeping, and puts it all on repeat.  
+
+    constructor(name) {
+        super(name);
+        this.name = name;
+    }
+
+    eat = () => {
+        console.log(`${this.name} studies, then eats`);
+    }
+
+    sleep = () => {
+        console.log(`${this.name} studies coding so much, that they dream about it in their sleep`);
+    }
+      
+    code = () => {
+        console.log(`${this.name} was first overwhelmed by coding, but kept at it, and now has become a coding guru!`);
+    }
+
+    repeat = () => {
+        console.log(`${this.name} keeps on studying, coding, eating, and sleeping, and puts it all on repeat.`);
+    }
+
+    explain = () => {
+        console.log("an explain method was need, as the class student extended from the class person");
+    }
 
 }
 
@@ -129,15 +231,11 @@ student.repeat();
 class Cook {
 
     prepare(food1,food2,food3) {
-        console.log("The cook is cooking " + food1, food2, food3);
-    }
-
-    prepare = function() {
-        console.log('The cook is cooking');
+        console.log(`The cook is cooking + ${food1}, ${food2}, and ${food3}.`);
     }
 
     explain = () => {
-        console.log("what could you do to get the prepare function to print out the food items that are being passed in to the function?  Once you figure it out, Write down your thought process in this explain method.");
+        console.log("needed to delete the second prepare function, and fix (prioritize) the initial prepare function");
     }
 
 }
